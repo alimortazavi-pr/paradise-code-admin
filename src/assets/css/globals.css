@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Css */
+@import url(./preflight.css);
+@import url(./../fonts/yekan-bakh/yekan-font.css);
+@import url(./404.css);
+@import url(./500.css);
+@import url(./../fonts/iconsax-css/style.css);
+@import url(./nprogress.css);
+@import url(./custom-nextui.css);
+
+* {
+  font-family: "yekan-bakh", sans-serif !important;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
+.radius-r-rtl {
+  border-radius: 0 !important;
+  border-bottom-right-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+.radius-l-rtl {
+  border-radius: 0 !important;
+  border-bottom-left-radius: 1rem !important;
+  border-top-left-radius: 1rem !important;
+}
+
+.ltr-important {
+  direction: ltr !important;
+}
+
+li {
+  margin: 0;
+}
+
+span {
+  margin: 0;
+}
+
+.plyr {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+.select-bordered {
+  border-radius: 0.75rem !important;
+}

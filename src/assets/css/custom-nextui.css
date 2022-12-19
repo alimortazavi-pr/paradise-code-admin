@@ -1,0 +1,10 @@
+.nextui-collapse-title {
+  text-align: right !important;
+}
+
+.nextui-input-helper-text {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  color: rgb(239 68 68) !important;
+  letter-spacing:normal !important
+}
