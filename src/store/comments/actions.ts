@@ -17,12 +17,12 @@ import {
 import api from "@/api";
 
 //Actions from actions
-export function createComment(form: ICreateComment): AppThunk {
+export function createComment(form: ICreateComment, userId: string): AppThunk {
   return async (dispatch, getState) => {
     try {
       await api.post(
         "/comments",
-        { ...form, user: getState().auth.user._id as string },
+        { ...form, user: userId },
         {
           headers: {
             Authorization: `Bearer ${getState().auth.token}`,
@@ -145,7 +145,10 @@ export function getCommentsOfEpisode(episodeId: string): AppThunk {
   };
 }
 
-export function getCommentsOfArticle(articleId: string, page: number): AppThunk {
+export function getCommentsOfArticle(
+  articleId: string,
+  page: number
+): AppThunk {
   return async (dispatch, getState) => {
     try {
       const comments = await api.get(
