@@ -349,7 +349,7 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
           )}
           <div className="w-full h-[80vh] mt-5">
             <MyPlyrVideo
-              videoSrc={`http://localhost:7011/static${episode.videoUrl}&a=${token}&admin=true`}
+              videoSrc={`https://api.alimortazavi.org/static${episode.videoUrl}&a=${token}&admin=true`}
             />
           </div>
         </div>

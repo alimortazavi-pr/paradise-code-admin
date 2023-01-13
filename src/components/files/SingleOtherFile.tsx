@@ -18,7 +18,7 @@ export default function SingleOtherFile({ file, destroyFile }: Props) {
   //Functions
   async function download() {
     axios
-      .get(`http://localhost:7011/static${file.path}`)
+      .get(`https://api.alimortazavi.org/static${file.path}`)
       .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
@@ -58,7 +58,7 @@ export default function SingleOtherFile({ file, destroyFile }: Props) {
           <Tooltip content="کپی کردن لینک فایل" color="secondary">
             <CopyToClipboard
               onCopy={onCopyLink}
-              text={`http://localhost:7011/static${file.path}`}
+              text={`https://api.alimortazavi.org/static${file.path}`}
             >
               <Link21 className="text-purple-500 cursor-pointer" size="30" />
             </CopyToClipboard>

@@ -158,14 +158,14 @@ export default function EditUser({ user }: Props) {
           <div className="relative w-28 h-28">
             {user.profileImage ? (
               <Image
-                src={`http://localhost:7011/static${user.profileImage}`}
+                src={`https://api.alimortazavi.org/static${user.profileImage}`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
               />
             ) : (
               <Image
-                src={`http://localhost:7011/static/images/user.png`}
+                src={`https://api.alimortazavi.org/static/images/user.png`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"

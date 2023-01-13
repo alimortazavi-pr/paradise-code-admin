@@ -145,14 +145,14 @@ export default function EditAdmin({ admin }: Props) {
           <div className="relative w-28 h-28">
             {admin.profileImage ? (
               <Image
-                src={`http://localhost:7011/static${admin.profileImage}`}
+                src={`https://api.alimortazavi.org/static${admin.profileImage}`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
               />
             ) : (
               <Image
-                src={`http://localhost:7011/static/images/admin.png`}
+                src={`https://api.alimortazavi.org/static/images/admin.png`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"

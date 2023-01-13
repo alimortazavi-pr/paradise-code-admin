@@ -22,7 +22,7 @@ export default function SingleImageFile({ file, destroyFile }: Props) {
 
       <div className="w-full h-full relative">
         <Image
-          src={`http://localhost:7011/static${file.path}`}
+          src={`https://api.alimortazavi.org/static${file.path}`}
           fill
           alt=""
           className="object-contain"
