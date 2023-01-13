@@ -54,11 +54,15 @@ export default function Courses({ courses, totalPages }: Props) {
   return (
     <div>
       <div className="w-full lg:w-20">
-        <Link href={"/courses/create"}>
-          <Button shadow bordered ghost className="z-0 w-full">
-            ایجاد دوره
-          </Button>
-        </Link>
+        <Button
+          shadow
+          bordered
+          ghost
+          className="z-0 w-full"
+          onClick={() => router.push("/courses/create")}
+        >
+          ایجاد دوره
+        </Button>
       </div>
       <hr className="my-5" />
       <Table

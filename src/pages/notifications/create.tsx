@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import type { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import {
@@ -6,41 +6,37 @@ import {
   FormElement,
   Input,
   Loading,
-  Switch,
   Textarea,
 } from "@nextui-org/react";
 
 //Types
+import { ISingleUser } from "@/ts/interfaces/users.interface";
+import { createNotificationPropsType } from "@/ts/types/notifications.type";
 import {
-  IEditComment,
-  ISingleComment,
-  IValidationErrorsEditComment,
-} from "@/ts/interfaces/comments.interface";
+  ICreateNotification,
+  ISingleUserForCreateNotification,
+  IValidationErrorsCreateNotification,
+} from "@/ts/interfaces/notifications.interface";
 
 //Redux
 import { useAppDispatch } from "@/store/hooks";
-import { editComment } from "@/store/comments/actions";
+import { createLearning } from "@/store/learnings/actions";
 
 //Tools
 import api from "@/api";
 import { toast } from "react-toastify";
 
 //Components
-import { CloseCircle, TickCircle } from "iconsax-react";
+import InfiniteScrollUsers from "@/components/notifications/InfiniteScrollUsers";
+import SelectedUsers from "@/components/notifications/SelectedUsers";
+import { createNotificationValidator } from "@/validators/notificationValidator";
+import { createNotification } from "@/store/notifications/actions";
 
 //Validators
-import { editCommentValidator } from "@/validators/commentValidator";
 
-type Props = {
-  comments: any[];
-  commentsTypes: any[];
-  comment: ISingleComment;
-};
-export default function EditComment({
-  comments,
-  commentsTypes,
-  comment,
-}: Props) {
+export default function CreateNotification({
+  users,
+}: createNotificationPropsType) {
   //Redux
   const dispatch = useAppDispatch();
 
@@ -48,38 +44,20 @@ export default function EditComment({
   const router = useRouter();
 
   //States
-  const [form, setForm] = useState<IEditComment>({
-    user: "",
-    course: "",
-    episode: "",
-    article: "",
-    grandParent: "",
+  const [form, setForm] = useState<ICreateNotification>({
+    users: [],
+    subject: "",
     description: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errors, setErrors] = useState<IValidationErrorsEditComment>({
+  const [errors, setErrors] = useState<IValidationErrorsCreateNotification>({
     paths: [],
     messages: {
-      user: "",
-      course: "",
-      episode: "",
-      article: "",
-      grandParent: "",
+      users: "",
       description: "",
+      subject: "",
     },
   });
-
-  //Effects
-  useEffect(() => {
-    setForm({
-      course: comment.course?._id,
-      episode: comment.episode?._id,
-      article: comment.article?._id,
-      user: comment.user?._id as string,
-      grandParent: comment.grandParent?._id || "",
-      description: comment.description,
-    });
-  }, [comment]);
 
   //Functions
   function inputHandler(
@@ -96,30 +74,22 @@ export default function EditComment({
     setErrors({
       paths: [],
       messages: {
-        user: "",
-        course: "",
-        episode: "",
-        article: "",
-        grandParent: "",
+        users: "",
         description: "",
+        subject: "",
       },
     });
     setIsLoading(true);
-    editCommentValidator
-      .validate(
-        {
-          ...form,
-        },
-        { abortEarly: false }
-      )
+    createNotificationValidator
+      .validate(form, { abortEarly: false })
       .then(async () => {
         try {
-          await dispatch(editComment(form, router.query._id as string));
-          toast.success("نظر با موفقیت ویرایش شد", {
+          await dispatch(createNotification(form));
+          toast.success("پیام با موفقیت ایجاد شد", {
             position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
-          router.push("/comments");
+          // router.push("/notifications");
         } catch (err: any) {
           toast.error(err.message, {
             position: toast.POSITION.BOTTOM_CENTER,
@@ -128,15 +98,12 @@ export default function EditComment({
         }
       })
       .catch((err: any) => {
-        let errorsArray: IValidationErrorsEditComment = {
+        let errorsArray: IValidationErrorsCreateNotification = {
           paths: [],
           messages: {
-            user: "",
-            course: "",
-            episode: "",
-            article: "",
-            grandParent: "",
+            users: "",
             description: "",
+            subject: "",
           },
         };
         err.inner.forEach((error: any) => {
@@ -155,10 +122,29 @@ export default function EditComment({
       <div className="grid grid-cols-12 gap-3">
         <div
           className={`form-control mb-3 col-span-12 ${
-            errors.paths.includes("description") ? "mb-6" : "mb-3"
+            errors.paths.includes("subject") ? "mb-6" : "mb-3"
           }`}
         >
-          <Textarea bordered
+          <Input
+            bordered
+            value={form.subject}
+            name="subject"
+            onChange={inputHandler}
+            placeholder="موضوع"
+            helperText={
+              errors.paths.includes("subject") ? errors.messages.subject : ""
+            }
+            helperColor="error"
+            label="موضوع"
+          />
+        </div>
+        <div
+          className={`form-control mb-3 col-span-12 ${
+            errors.paths.includes("shortDescription") ? "mb-6" : "mb-3"
+          }`}
+        >
+          <Textarea
+            bordered
             value={form.description}
             name="description"
             onChange={inputHandler}
@@ -172,32 +158,39 @@ export default function EditComment({
             label="توضیحات"
           />
         </div>
-        <div className={`flex items-end justify-start col-span-12`}>
-          <label htmlFor="approved" className="ml-2 font-semibold">
-            تایید شده
-          </label>
-          <Switch
-            id="approved"
-            color="success"
-            bordered
-            shadow
-            checked={form.approved == true}
-            onChange={(e) => setForm({ ...form, approved: e.target.checked })}
-            size="xl"
-            iconOff={<CloseCircle />}
-            iconOn={<TickCircle />}
-          />
+        <div
+          className={`form-control mb-3 col-span-12 md:col-span-6 ${
+            errors.paths.includes("user") ? "mb-6" : "mb-3"
+          }`}
+        >
+          <InfiniteScrollUsers users={users} form={form} setForm={setForm} />
+          {errors.paths.includes("users") ? (
+            <label className="label">
+              <span className="label-text-alt text-red-500">
+                {errors.messages.users}
+              </span>
+            </label>
+          ) : (
+            ""
+          )}
+        </div>
+        <div
+          className={`form-control mb-3 col-span-12 md:col-span-6 ${
+            errors.paths.includes("user") ? "mb-6" : "mb-3"
+          }`}
+        >
+          <SelectedUsers form={form} setForm={setForm} />
         </div>
         <Button
           disabled={isLoading}
           type="submit"
           className="col-span-12 mt-2"
-          color="warning"
+          color="gradient"
           size={"lg"}
           ghost
         >
           <span className={`${isLoading ? "hidden" : "block"}`}>
-            ویرایش نظر
+            ایجاد پیام
           </span>
           <Loading
             hidden={!isLoading}
@@ -211,29 +204,25 @@ export default function EditComment({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  res,
-  params,
-}) => {
-  let comment: ISingleComment | object = {};
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  let users: ISingleUser[] = [];
   try {
     if (req.cookies.adminAuthorization) {
       const transformedData = JSON.parse(req.cookies.adminAuthorization);
-      const commentRes = await api.get(`/admin/comments/${params?._id}`, {
+      const usersResponse = await api.get(`/admin/variables/users`, {
         headers: {
           Authorization: `Bearer ${transformedData.token}`,
         },
       });
-      comment = commentRes.data.comment;
+      users = usersResponse.data.users;
     }
   } catch (error: any) {
-    console.log(error.response?.response || error.response);
+    console.log(error.response?.data);
   }
 
   return {
     props: {
-      comment: comment,
+      users: users,
     },
   };
 };

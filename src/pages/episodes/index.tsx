@@ -54,11 +54,15 @@ export default function Episodes({ episodes, totalPages }: Props) {
   return (
     <div>
       <div className="w-full lg:w-20">
-        <Link href={"/episodes/create"}>
-          <Button shadow bordered ghost className="z-0 w-full">
-            ایجاد جلسه
-          </Button>
-        </Link>
+        <Button
+          shadow
+          bordered
+          ghost
+          className="z-0 w-full"
+          onClick={() => router.push("/episodes/create")}
+        >
+          ایجاد جلسه
+        </Button>
       </div>
       <hr className="my-5" />
       <Table

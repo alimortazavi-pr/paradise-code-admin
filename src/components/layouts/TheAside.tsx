@@ -10,7 +10,19 @@ import { useAppDispatch } from "@/store/hooks";
 import { logOut } from "@/store/auth/actions";
 
 //Components
-import { Book, BrifecaseTimer, Category, Gallery, Home, Logout, Messages3, Note1, People, UserOctagon } from "iconsax-react";
+import {
+  Book,
+  BrifecaseTimer,
+  Category,
+  Gallery,
+  Home,
+  Logout,
+  Messages1,
+  Messages3,
+  Note1,
+  People,
+  UserOctagon,
+} from "iconsax-react";
 
 export default function TheAside({
   isAsideOpen,
@@ -28,7 +40,11 @@ export default function TheAside({
   //Effects
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (aside.current && !aside.current.contains(event.target) && isAsideOpen) {
+      if (
+        aside.current &&
+        !aside.current.contains(event.target) &&
+        isAsideOpen
+      ) {
         setIsAsideOpen(false);
       }
     }
@@ -56,15 +72,15 @@ export default function TheAside({
       ref={aside}
     >
       <ul className="bg-white w-full h-[85vh] rounded-xl px-7 py-7 text-right overflow-y-auto">
-        <Link href={"/"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/"}>
           <li className="font-semibold text-base p-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 duration-300 flex items-center ">
             <Home className="ml-2" size="18" />
             داشبورد
           </li>
         </Link>
-        <Link href={"/comments"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/comments"}>
           <li
-            className={`font-semibold mb-3 text-base p-3 rounded-lg ${
+            className={`font-semibold text-base p-3 rounded-lg ${
               router.route.includes("comments")
                 ? "text-gray-800 bg-gray-100"
                 : "text-gray-500"
@@ -74,8 +90,20 @@ export default function TheAside({
             نظرات
           </li>
         </Link>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/notifications"}>
+          <li
+            className={`font-semibold mb-3 text-base p-3 rounded-lg ${
+              router.route.includes("notifications")
+                ? "text-gray-800 bg-gray-100"
+                : "text-gray-500"
+            } hover:bg-gray-100 hover:text-gray-700 duration-300 flex items-center `}
+          >
+            <Messages1 className="ml-2" size={18} />
+            پیام ها
+          </li>
+        </Link>
         <hr className="my-3 bg-gray-200 h-[1px]" />
-        <Link href={"/users"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/users"}>
           <li
             className={`font-semibold mb-3 text-base p-3 rounded-lg ${
               router.route.includes("users")
@@ -87,7 +115,7 @@ export default function TheAside({
             کاربران
           </li>
         </Link>
-        <Link href={"/admins"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/admins"}>
           <li
             className={`font-semibold text-base p-3 rounded-lg ${
               router.route.includes("admins")
@@ -100,7 +128,7 @@ export default function TheAside({
           </li>
         </Link>
         <hr className="my-3 bg-gray-200 h-[1px]" />
-        <Link href={"/categories"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/categories"}>
           <li
             className={`font-semibold text-base p-3 rounded-lg ${
               router.route.includes("categories")
@@ -113,7 +141,7 @@ export default function TheAside({
           </li>
         </Link>
         <hr className="my-3 bg-gray-200 h-[1px]" />
-        <Link href={"/courses"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/courses"}>
           <li
             className={`font-semibold mb-3 text-base p-3 rounded-lg ${
               router.route.includes("courses")
@@ -125,7 +153,7 @@ export default function TheAside({
             دوره ها
           </li>
         </Link>
-        <Link href={"/episodes"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/episodes"}>
           <li
             className={`font-semibold mb-3 text-base p-3 rounded-lg ${
               router.route.includes("episodes")
@@ -137,7 +165,7 @@ export default function TheAside({
             جلسات
           </li>
         </Link>
-        <Link href={"/learnings"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/learnings"}>
           <li
             className={`font-semibold text-base p-3 rounded-lg ${
               router.route.includes("learnings")
@@ -150,7 +178,7 @@ export default function TheAside({
           </li>
         </Link>
         <hr className="my-3 bg-gray-200 h-[1px]" />
-        <Link href={"/articles"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/articles"}>
           <li
             className={`font-semibold mb-3 text-base p-3 rounded-lg ${
               router.route.includes("articles")
@@ -163,7 +191,7 @@ export default function TheAside({
           </li>
         </Link>
         <hr className="my-3 bg-gray-200 h-[1px]" />
-        <Link href={"/files"}>
+        <Link onClick={() => setIsAsideOpen(false)} href={"/files"}>
           <li
             className={`font-semibold mb-3 text-base p-3 rounded-lg ${
               router.route.includes("files")

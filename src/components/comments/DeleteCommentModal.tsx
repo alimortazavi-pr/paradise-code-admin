@@ -39,12 +39,12 @@ export default function DeleteCommentModal({
       setVisibleModal(false);
       toast.warning("دسته بندی با موفقیت حذف شد", {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     } catch (err: any) {
       toast.error(err.message, {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);
@@ -58,12 +58,12 @@ export default function DeleteCommentModal({
       setVisibleModal(false);
       toast.success("دسته بندی با موفقیت بازیابی شد", {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     } catch (err: any) {
       toast.error(err.message, {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);

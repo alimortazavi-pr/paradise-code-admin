@@ -42,7 +42,7 @@ export default function UploadFileModal({
     try {
       if (!file) {
         return toast.error("لطفا یک عکس انتخاب کنید", {
-          position: toast.POSITION.TOP_CENTER,
+          position: toast.POSITION.BOTTOM_CENTER,
         });
       }
       setIsLoading(true);
@@ -50,13 +50,13 @@ export default function UploadFileModal({
       formData.append("file", file);
       dispatch(uploadFile(formData));
       toast.success("فایل با موفقیت آپلود شد", {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);
     } catch (err: any) {
       toast.error(err.message, {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);

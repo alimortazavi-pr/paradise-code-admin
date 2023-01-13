@@ -46,9 +46,7 @@ export default function Categories({ categories, totalPages }: Props) {
     router.push(`/categories?page=${index}`);
   }
 
-  function destroyCategory(
-    category: ISingleCategory<{ title: string }>
-  ) {
+  function destroyCategory(category: ISingleCategory<{ title: string }>) {
     setCategorySelected(category);
     setVisibleModal(true);
   }
@@ -56,11 +54,15 @@ export default function Categories({ categories, totalPages }: Props) {
   return (
     <div>
       <div className="w-full lg:w-20">
-        <Link href={"/categories/create"}>
-          <Button shadow bordered ghost className="z-0 w-full">
-            ایجاد دسته بندی
-          </Button>
-        </Link>
+        <Button
+          shadow
+          bordered
+          ghost
+          className="z-0 w-full"
+          onClick={() => router.push("/categories/create")}
+        >
+          ایجاد دسته بندی
+        </Button>
       </div>
       <hr className="my-5" />
       <Table

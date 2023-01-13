@@ -39,12 +39,12 @@ export default function DeleteUserModal({
       setVisibleModal(false);
       toast.warning("کاربر با موفقیت حذف شد", {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     } catch (err: any) {
       toast.error(err.message, {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);
@@ -58,12 +58,12 @@ export default function DeleteUserModal({
       setVisibleModal(false);
       toast.success("کاربر با موفقیت بازیابی شد", {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
     } catch (err: any) {
       toast.error(err.message, {
         
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_CENTER,
       });
       setIsLoading(false);
       setVisibleModal(false);

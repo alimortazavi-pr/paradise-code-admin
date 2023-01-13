@@ -123,13 +123,13 @@ export default function CreateArticle({ categories, levels }: Props) {
           );
           await dispatch(createArticle(formData));
           toast.success("مقاله با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/articles");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

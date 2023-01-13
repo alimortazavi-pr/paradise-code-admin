@@ -110,13 +110,13 @@ export default function EditCategory({
         try {
           await dispatch(editCategory(form, router.query.slug as string));
           toast.success("دسته بندی با موفقیت ویرایش شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/categories");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

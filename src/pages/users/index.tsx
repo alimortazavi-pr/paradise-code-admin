@@ -55,11 +55,15 @@ export default function Users({ users, totalPages }: Props) {
   return (
     <div>
       <div className="w-full lg:w-20">
-        <Link href={"/users/create"}>
-          <Button shadow bordered ghost className="z-0 w-full">
-            ایجاد کاربر
-          </Button>
-        </Link>
+        <Button
+          shadow
+          bordered
+          ghost
+          className="z-0 w-full"
+          onClick={() => router.push("/users/create")}
+        >
+          ایجاد کاربر
+        </Button>
       </div>
       <hr className="my-5" />
       <Table

@@ -33,8 +33,7 @@ export default function Learnings({ learnings, totalPages }: Props) {
 
   //States
   const [visibleModal, setVisibleModal] = useState(false);
-  const [learningSelected, setLearningSelected] =
-    useState<ISingleLearning>();
+  const [learningSelected, setLearningSelected] = useState<ISingleLearning>();
 
   //Effects
   useEffect(() => {
@@ -54,11 +53,15 @@ export default function Learnings({ learnings, totalPages }: Props) {
   return (
     <div>
       <div className="w-full lg:w-20">
-        <Link href={"/learnings/create"}>
-          <Button shadow bordered ghost className="z-0 w-full">
-            ایجاد در حال یادگیری
-          </Button>
-        </Link>
+        <Button
+          shadow
+          bordered
+          ghost
+          className="z-0 w-full"
+          onClick={() => router.push("/learnings/create")}
+        >
+          ایجاد در حال یادگیری
+        </Button>
       </div>
       <hr className="my-5" />
       <Table

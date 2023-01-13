@@ -90,13 +90,13 @@ export default function CreateCategory({ categories, categoriesTypes }: Props) {
         try {
           await dispatch(createCategory(form));
           toast.success("دسته بندی با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/categories");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

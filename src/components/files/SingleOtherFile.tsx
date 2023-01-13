@@ -33,7 +33,7 @@ export default function SingleOtherFile({ file, destroyFile }: Props) {
 
   function onCopyLink() {
     toast.success("لینک فایل با موفقیت کپی شد", {
-      position: toast.POSITION.TOP_CENTER,
+      position: toast.POSITION.BOTTOM_CENTER,
     });
   }
 

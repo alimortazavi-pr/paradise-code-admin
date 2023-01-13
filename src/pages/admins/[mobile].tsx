@@ -106,13 +106,13 @@ export default function EditAdmin({ admin }: Props) {
           );
           await dispatch(editAdmin(formData, router.query.mobile as string));
           toast.success("کاربر با موفقیت ویرایش شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("s");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

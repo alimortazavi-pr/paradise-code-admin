@@ -135,13 +135,13 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
           formData.append("videoUrl", videoUrl.current?.files?.item(0) || "");
           await dispatch(editEpisode(formData, router.query.slug as string));
           toast.success("جلسه با موفقیت ویرایش شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/episodes");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

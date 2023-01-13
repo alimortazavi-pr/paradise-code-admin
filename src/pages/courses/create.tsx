@@ -133,13 +133,13 @@ export default function CreateCourse({ categories, levels }: Props) {
           );
           await dispatch(createCourse(formData));
           toast.success("دوره با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/courses");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

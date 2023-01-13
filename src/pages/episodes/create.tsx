@@ -115,13 +115,13 @@ export default function CreateEpisode({ courses, levels }: Props) {
           formData.append("videoUrl", videoUrl.current?.files?.item(0) || "");
           await dispatch(createEpisode(formData));
           toast.success("جلسه با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/episodes");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

@@ -104,13 +104,13 @@ export default function TheProfile({ profile }: theProfilePropsType) {
           );
           await dispatch(editProfile(formData));
           toast.success("پروفایل شما با موفقیت ویرایش شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           router.push("/");
           setIsLoading(false);
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

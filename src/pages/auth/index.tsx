@@ -61,13 +61,13 @@ export default function SendCode() {
         try {
           await dispatch(sendCode(form));
           toast.success("کد تایید با موفقیت ارسال شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push(`/auth/sign-in?mobile=${form.mobile}`);
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }
@@ -95,7 +95,7 @@ export default function SendCode() {
       <Head>
         <title>ورود (ادمین) | پارادایس کد</title>
       </Head>
-      <div className="h-screen bg-dark-900 flex justify-center pt-10 md:pt-0 md:items-center bg-cover">
+      <div className="h-screen bg-dark-900 flex justify-center pt-10 md:items-start bg-cover">
         <div className="w-80 bg-white backdrop-blur py-14 rounded-xl shadow-sm">
           <h5 className="text-4xl text-black text-center mb-11 font-bold">
             ورود

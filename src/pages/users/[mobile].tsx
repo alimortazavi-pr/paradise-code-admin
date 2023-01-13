@@ -117,13 +117,13 @@ export default function EditUser({ user }: Props) {
           );
           await dispatch(editUser(formData, router.query.mobile as string));
           toast.success("کاربر با موفقیت ویرایش شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/users");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

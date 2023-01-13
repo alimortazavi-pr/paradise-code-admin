@@ -73,13 +73,13 @@ export default function SignIn() {
         try {
           await dispatch(signIn(form));
           toast.success("باموفقیت وارد شدید", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }
@@ -108,7 +108,7 @@ export default function SignIn() {
       <Head>
         <title>ورود (ادمین) | پارادایس کد</title>
       </Head>
-      <div className="h-screen bg-dark-900 flex justify-center pt-10 md:pt-0 md:items-center bg-cover">
+      <div className="h-screen bg-dark-900 flex justify-center pt-10 md:items-start bg-cover">
         <div className="w-80 bg-white backdrop-blur py-14 rounded-xl">
           <h5 className="text-4xl text-black text-center mb-11 font-bold">
             ورود
@@ -123,7 +123,8 @@ export default function SignIn() {
                   errors.paths.includes("mobile") ? "mb-6" : "mb-3"
                 }`}
               >
-                <Input bordered
+                <Input
+                  bordered
                   value={form.mobile}
                   name="mobile"
                   onChange={inputHandler}
@@ -135,6 +136,7 @@ export default function SignIn() {
                   }
                   helperColor="error"
                   size="lg"
+                  disabled
                 />
               </div>
               <div
@@ -142,7 +144,8 @@ export default function SignIn() {
                   errors.paths.includes("code") ? "mb-6" : "mb-3"
                 }`}
               >
-                <Input bordered
+                <Input
+                  bordered
                   value={form.code}
                   name="code"
                   onChange={inputHandler}

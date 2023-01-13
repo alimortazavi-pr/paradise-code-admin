@@ -92,13 +92,13 @@ export default function CreateAdmin({}: Props) {
           );
           await dispatch(createAdmin(formData));
           toast.success("ادمین با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("s");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }

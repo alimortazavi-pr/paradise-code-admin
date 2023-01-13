@@ -84,13 +84,13 @@ export default function CreateLearning({ users, courses }: Props) {
         try {
           await dispatch(createLearning(form));
           toast.success("در حال یادگیری با موفقیت ایجاد شد", {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
           router.push("/learnings");
         } catch (err: any) {
           toast.error(err.message, {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.BOTTOM_CENTER,
           });
           setIsLoading(false);
         }
