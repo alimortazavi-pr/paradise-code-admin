@@ -384,7 +384,7 @@ export default function EditCourse({ categories, course, levels }: Props) {
           )}
           <div className="relative w-full h-96 mt-5 ">
             <Image
-              src={`https://api.alimortazavi.org/static${course.imageThumb}`}
+              src={`https://api.paradisecode.org/static${course.imageThumb}`}
               alt=""
               layout="fill"
               className="object-contain"
@@ -436,7 +436,7 @@ export default function EditCourse({ categories, course, levels }: Props) {
           )}
           <div className="w-full h-[80vh] mt-5">
             <MyPlyrVideo
-              videoSrc={`https://api.alimortazavi.org/static${course.introductionVideo}`}
+              videoSrc={`https://api.paradisecode.org/static${course.introductionVideo}`}
             />
           </div>
         </div>

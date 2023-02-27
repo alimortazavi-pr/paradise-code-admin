@@ -356,7 +356,7 @@ export default function EditArticle({ categories, article, levels }: Props) {
           )}
           <div className="relative w-full h-96 mt-5 ">
             <Image
-              src={`https://api.alimortazavi.org/static${article.imageThumb}`}
+              src={`https://api.paradisecode.org/static${article.imageThumb}`}
               alt=""
               layout="fill"
               className="object-contain"
@@ -409,7 +409,7 @@ export default function EditArticle({ categories, article, levels }: Props) {
           {article.introductionVideo ? (
             <div className="w-full h-[80vh] mt-5">
               <MyPlyrVideo
-                videoSrc={`https://api.alimortazavi.org/static${article.introductionVideo}`}
+                videoSrc={`https://api.paradisecode.org/static${article.introductionVideo}`}
               />
             </div>
           ) : null}

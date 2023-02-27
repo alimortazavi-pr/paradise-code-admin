@@ -143,14 +143,14 @@ export default function TheProfile({ profile }: theProfilePropsType) {
           <div className="relative w-28 h-28">
             {profile.profileImage ? (
               <Image
-                src={`https://api.alimortazavi.org/static${profile.profileImage}`}
+                src={`https://api.paradisecode.org/static${profile.profileImage}`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
               />
             ) : (
               <Image
-                src={`https://api.alimortazavi.org/static/images/user.png`}
+                src={`https://api.paradisecode.org/static/images/user.png`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
