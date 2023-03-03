@@ -34,8 +34,7 @@ export function autoLogin(): AppThunk {
       }
     } catch (err: any) {
       if (err.response?.status === 401) {
-        // dispatch(logOut());
-        console.log("logout test");
+        dispatch(logOut());
       } else {
         console.log(err);
       }

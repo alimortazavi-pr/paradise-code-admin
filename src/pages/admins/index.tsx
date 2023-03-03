@@ -37,14 +37,14 @@ export default function Admins({ admins, totalPages }: Props) {
 
   //Effects
   useEffect(() => {
+    console.log(admins);
+
     dispatch(setAdmins(admins));
-    if (router.query.page) {
-    }
   }, [admins, dispatch, router.query]);
 
   //Functions
   function changePage(index: number) {
-    router.push(`s?page=${index}`);
+    router.push(`/?page=${index}`);
   }
 
   function destroyAdmin(admin: ISingleAdmin) {
@@ -184,6 +184,8 @@ export const getServerSideProps: GetServerSideProps = async ({
       totalPages = response.data.totalPages;
     }
   } catch (error: any) {
+    console.log(error.message);
+
     console.log(error.response?.data);
   }
 

@@ -25,6 +25,7 @@ import { toast } from "react-toastify";
 
 //Validators
 import { editAdminValidator } from "@/validators/adminValidator";
+import axios from "axios";
 
 export default function TheProfile({ profile }: theProfilePropsType) {
   //Redux
@@ -263,7 +264,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   try {
     if (req.cookies.adminAuthorization) {
       const transformedData = JSON.parse(req.cookies.adminAuthorization);
-      const profileRes = await api.get(`/admin/profile`, {
+      const profileRes = await axios.get(`https://api.paradisecode.org/api/v1/admin/profile`, {
         headers: {
           Authorization: `Bearer ${transformedData.token}`,
         },
