@@ -178,7 +178,8 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
             errors.paths.includes("title") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.title}
             name="title"
             onChange={inputHandler}
@@ -195,7 +196,8 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
             errors.paths.includes("slug") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.slug}
             name="slug"
             onChange={inputHandler}
@@ -212,7 +214,8 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
             errors.paths.includes("row") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.row}
             name="row"
             onChange={inputHandler}
@@ -291,6 +294,10 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
             <CKEditor
               initData={description}
               onChange={(e) => setDescription(e.editor.getData())}
+              config={{
+                extraPlugins: "justify",
+                contentsLangDirection: "rtl",
+              }}
             />
           ) : null}
 
@@ -331,7 +338,8 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
             <span className="mt-2 text-base leading-normal">
               انتخاب ویدیو معرفی جلسه
             </span>
-            <Input bordered
+            <Input
+              bordered
               type="file"
               className="hidden"
               ref={videoUrl}

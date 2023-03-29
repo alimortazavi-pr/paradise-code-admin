@@ -182,7 +182,8 @@ export default function EditArticle({ categories, article, levels }: Props) {
             errors.paths.includes("title") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.title}
             name="title"
             onChange={inputHandler}
@@ -199,7 +200,8 @@ export default function EditArticle({ categories, article, levels }: Props) {
             errors.paths.includes("slug") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.slug}
             name="slug"
             onChange={inputHandler}
@@ -216,7 +218,8 @@ export default function EditArticle({ categories, article, levels }: Props) {
             errors.paths.includes("readingTime") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             type="text"
             value={form.readingTime}
             name="readingTime"
@@ -298,6 +301,10 @@ export default function EditArticle({ categories, article, levels }: Props) {
             <CKEditor
               initData={content}
               onChange={(e) => setContent(e.editor.getData())}
+              config={{
+                extraPlugins: "justify",
+                contentsLangDirection: "rtl",
+              }}
             />
           ) : null}
 
@@ -338,7 +345,8 @@ export default function EditArticle({ categories, article, levels }: Props) {
             <span className="mt-2 text-base leading-normal">
               انتخاب تصویر مقاله
             </span>
-            <Input bordered
+            <Input
+              bordered
               type="file"
               className="hidden"
               ref={imageThumb}
@@ -390,7 +398,8 @@ export default function EditArticle({ categories, article, levels }: Props) {
             <span className="mt-2 text-base leading-normal">
               انتخاب ویدیو معرفی مقاله
             </span>
-            <Input bordered
+            <Input
+              bordered
               type="file"
               className="hidden"
               ref={introductionVideo}

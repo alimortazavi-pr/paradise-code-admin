@@ -178,7 +178,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             errors.paths.includes("title") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.title}
             name="title"
             onChange={inputHandler}
@@ -195,7 +196,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             errors.paths.includes("slug") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             value={form.slug}
             name="slug"
             onChange={inputHandler}
@@ -212,7 +214,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             errors.paths.includes("price") ? "mb-6" : "mb-3"
           }`}
         >
-          <Input bordered
+          <Input
+            bordered
             type="number"
             value={form.price}
             name="price"
@@ -288,7 +291,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             errors.paths.includes("shortDescription") ? "mb-6" : "mb-3"
           }`}
         >
-          <Textarea bordered
+          <Textarea
+            bordered
             value={form.shortDescription}
             name="shortDescription"
             onChange={inputHandler}
@@ -310,6 +314,10 @@ export default function CreateCourse({ categories, levels }: Props) {
           <CKEditor
             initData={description}
             onChange={(e) => setDescription(e.editor.getData())}
+            config={{
+              extraPlugins: "justify",
+              contentsLangDirection: "rtl",
+            }}
           />
           {errors.paths.includes("description") ? (
             <label className="label">
@@ -348,7 +356,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             <span className="mt-2 text-base leading-normal">
               انتخاب تصویر دوره
             </span>
-            <Input bordered
+            <Input
+              bordered
               type="file"
               className="hidden"
               ref={imageThumb}
@@ -392,7 +401,8 @@ export default function CreateCourse({ categories, levels }: Props) {
             <span className="mt-2 text-base leading-normal">
               انتخاب ویدیو معرفی دوره
             </span>
-            <Input bordered
+            <Input
+              bordered
               type="file"
               className="hidden"
               ref={introductionVideo}
