@@ -12,7 +12,7 @@ export default function NavBar({
   setIsAsideOpen,
 }: navBarPropsType) {
   return (
-    <div className="md:p-2 fixed w-full top-0 z-[999]">
+    <div className="md:p-2 absolute w-full top-0 z-[998]">
       <nav className="w-full min-h-8 px-3 py-2 bg-white bg-opacity-50 backdrop-blur shadow-sm md:rounded-md flex items-center justify-between gap-4">
         <div className="">
           {isAsideOpen ? (

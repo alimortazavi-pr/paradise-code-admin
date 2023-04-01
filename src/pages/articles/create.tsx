@@ -286,7 +286,7 @@ export default function CreateArticle({ categories, levels }: Props) {
             initData={content}
             onChange={(e) => setContent(e.editor.getData())}
             config={{
-              extraPlugins: "justify",
+              extraPlugins: ["justify", "font"],
               contentsLangDirection: "rtl",
             }}
           />

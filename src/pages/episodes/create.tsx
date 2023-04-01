@@ -274,7 +274,7 @@ export default function CreateEpisode({ courses, levels }: Props) {
             initData={description}
             onChange={(e) => setDescription(e.editor.getData())}
             config={{
-              extraPlugins: "justify",
+              extraPlugins: ["justify", "font"],
               contentsLangDirection: "rtl",
             }}
           />

@@ -53,16 +53,13 @@ export default function GlobalLayout({
       <Head>
         <title>ادمین | پارادایس کد</title>
       </Head>
+      {!router.pathname.includes("/auth") ? (
+        <div>
+          <NavBar isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
+          <TheAside isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
+        </div>
+      ) : null}
       <div className="min-h-screen relative mt-16 md:mt-[70px]">
-        {!router.pathname.includes("/auth") ? (
-          <div>
-            <NavBar isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} />
-            <TheAside
-              isAsideOpen={isAsideOpen}
-              setIsAsideOpen={setIsAsideOpen}
-            />
-          </div>
-        ) : null}
         <div className={`px-4 lg:px-10 pt-10`}>
           <motion.div
             initial={{ x: 300, opacity: 0 }}

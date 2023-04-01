@@ -302,7 +302,7 @@ export default function EditArticle({ categories, article, levels }: Props) {
               initData={content}
               onChange={(e) => setContent(e.editor.getData())}
               config={{
-                extraPlugins: "justify",
+                extraPlugins: ["justify", "font"],
                 contentsLangDirection: "rtl",
               }}
             />
