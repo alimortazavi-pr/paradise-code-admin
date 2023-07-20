@@ -90,13 +90,12 @@ export function editProfile(form: FormData): AppThunk {
 }
 
 function saveDataToLocal(token: string, user: object) {
-  console.log(token, user);
-
   Cookies.set(
     "adminAuthorization",
     JSON.stringify({
       token: token,
       user: user,
-    })
+    }),
+    { expires: 90 }
   );
 }
