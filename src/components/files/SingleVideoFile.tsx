@@ -22,7 +22,7 @@ export default function SingleVideoFile({ file, destroyFile }: Props) {
       </span>
 
       <div className="w-full h-full relative">
-        <MyPlyrVideo videoSrc={`https://api.paradisecode.org/static${file.path}`} />
+        <MyPlyrVideo videoSrc={`https://paradise-code.cyclic.cloud/static${file.path}`} />
       </div>
     </div>
   );

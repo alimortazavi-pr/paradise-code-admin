@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "api.paradisecode.org"],
+    domains: [
+      "localhost",
+      "api.paradisecode.org",
+      "paradise-code.cyclic.cloud",
+    ],
   },
 };
 

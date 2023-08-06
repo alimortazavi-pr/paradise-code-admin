@@ -357,7 +357,7 @@ export default function EditEpisode({ courses, episode, levels }: Props) {
           )}
           <div className="w-full h-[80vh] mt-5">
             <MyPlyrVideo
-              videoSrc={`https://api.paradisecode.org/static${episode.videoUrl}&a=${token}&admin=true`}
+              videoSrc={`https://paradise-code.cyclic.cloud/static${episode.videoUrl}&a=${token}&admin=true`}
             />
           </div>
         </div>

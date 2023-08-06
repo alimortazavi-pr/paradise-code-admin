@@ -22,7 +22,7 @@ export default function SingleImageFile({ file, destroyFile }: Props) {
 
       <div className="w-full h-full relative">
         <Image
-          src={`https://api.paradisecode.org/static${file.path}`}
+          src={`https://paradise-code.cyclic.cloud/static${file.path}`}
           fill
           alt=""
           className="object-contain"
