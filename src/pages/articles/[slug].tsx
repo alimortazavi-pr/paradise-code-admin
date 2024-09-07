@@ -364,7 +364,7 @@ export default function EditArticle({ categories, article, levels }: Props) {
           )}
           <div className="relative w-full h-96 mt-5 ">
             <Image
-              src={`https://paradise-code.cyclic.cloud/static${article.imageThumb}`}
+              src={`https://edu-paradise-code.liara.run/static${article.imageThumb}`}
               alt=""
               layout="fill"
               className="object-contain"
@@ -418,7 +418,7 @@ export default function EditArticle({ categories, article, levels }: Props) {
           {article.introductionVideo ? (
             <div className="w-full h-[80vh] mt-5">
               <MyPlyrVideo
-                videoSrc={`https://paradise-code.cyclic.cloud/static${article.introductionVideo}`}
+                videoSrc={`https://edu-paradise-code.liara.run/static${article.introductionVideo}`}
               />
             </div>
           ) : null}

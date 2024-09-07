@@ -393,7 +393,7 @@ export default function EditCourse({ categories, course, levels }: Props) {
           )}
           <div className="relative w-full h-96 mt-5 ">
             <Image
-              src={`https://paradise-code.cyclic.cloud/static${course.imageThumb}`}
+              src={`https://edu-paradise-code.liara.run/static${course.imageThumb}`}
               alt=""
               layout="fill"
               className="object-contain"
@@ -446,7 +446,7 @@ export default function EditCourse({ categories, course, levels }: Props) {
           )}
           <div className="w-full h-[80vh] mt-5">
             <MyPlyrVideo
-              videoSrc={`https://paradise-code.cyclic.cloud/static${course.introductionVideo}`}
+              videoSrc={`https://edu-paradise-code.liara.run/static${course.introductionVideo}`}
             />
           </div>
         </div>

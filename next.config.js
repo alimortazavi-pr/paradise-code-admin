@@ -5,7 +5,7 @@ const nextConfig = {
     domains: [
       "localhost",
       "api.paradisecode.org",
-      "paradise-code.cyclic.cloud",
+      "edu-paradise-code.liara.run",
     ],
   },
 };

@@ -144,14 +144,14 @@ export default function TheProfile({ profile }: theProfilePropsType) {
           <div className="relative w-28 h-28">
             {profile.profileImage ? (
               <Image
-                src={`https://paradise-code.cyclic.cloud/static${profile.profileImage}`}
+                src={`https://edu-paradise-code.liara.run/static${profile.profileImage}`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
               />
             ) : (
               <Image
-                src={`https://paradise-code.cyclic.cloud/static/images/user.png`}
+                src={`https://edu-paradise-code.liara.run/static/images/user.png`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
@@ -264,7 +264,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   try {
     if (req.cookies.adminAuthorization) {
       const transformedData = JSON.parse(req.cookies.adminAuthorization);
-      const profileRes = await axios.get(`https://paradise-code.cyclic.cloud/api/v1/admin/profile`, {
+      const profileRes = await axios.get(`https://edu-paradise-code.liara.run/api/v1/admin/profile`, {
         headers: {
           Authorization: `Bearer ${transformedData.token}`,
         },

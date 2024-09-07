@@ -145,14 +145,14 @@ export default function EditAdmin({ admin }: Props) {
           <div className="relative w-28 h-28">
             {admin.profileImage ? (
               <Image
-                src={`https://paradise-code.cyclic.cloud/static${admin.profileImage}`}
+                src={`https://edu-paradise-code.liara.run/static${admin.profileImage}`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
               />
             ) : (
               <Image
-                src={`https://paradise-code.cyclic.cloud/static/images/admin.png`}
+                src={`https://edu-paradise-code.liara.run/static/images/admin.png`}
                 alt=""
                 layout="fill"
                 className="object-contain rounded-full"
